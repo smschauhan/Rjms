@@ -40,7 +40,7 @@ public class LoggerTest extends TestCase {
 
 	@Test
 	public void testRecieveByteMessage() {
-		byte[] resultObj = (byte[]) c.consume("type", "byte-message");
+		byte[] resultObj = (byte[]) c.consume("type", "byte-message",0);
 		String result = new String(resultObj);
 
 		assertEquals("This is a byte message", result);
@@ -55,7 +55,7 @@ public class LoggerTest extends TestCase {
 
 	@Test
 	public void testRecieveTextMessage() {
-		byte[] resultObj = (byte[]) c.consume("type", "text-message");
+		byte[] resultObj = (byte[]) c.consume("type", "text-message",0);
 		String result=new String(resultObj);
 		assertEquals("This is a text message", result);
 	}

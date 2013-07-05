@@ -44,10 +44,10 @@ public class Consumer {
 		}
 	}
 
-	public byte[] consume(String propertyName, String propertyValue) {
+	public byte[] consume(String propertyName, String propertyValue, long timeOutMillis) {
 		byte[] obj = null;
 		try {
-			ActiveMQMessage message = (ActiveMQMessage) consumer.receive();
+			ActiveMQMessage message = (ActiveMQMessage) consumer.receive(timeOutMillis);
 			if (message instanceof ActiveMQBytesMessage)
 				obj = message.getContent().getData();
 			else if (message instanceof ActiveMQTextMessage)

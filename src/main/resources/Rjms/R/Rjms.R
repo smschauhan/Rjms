@@ -26,13 +26,13 @@ initialize.consumer <- function(url, type, name) {
     obj <- .jnew("org/math/r/activemq/logger/Consumer", url, type, name)
     return(obj)
 }
-consume <- function(obj, propertyName = NULL, propertyValue = NULL, asString = F) {
+consume <- function(obj, propertyName = NULL, propertyValue = NULL, asString = F, timeOut=0) {
    if (is.null(propertyName) || is.null(propertyValue)) 
        {
         	propertyName <- .jnull("java/lang/String")
         	propertyValue <- .jnull("java/lang/String")
     	}
-    out <- .jcall(obj, "[B", "consume", propertyName, propertyValue)
+    out <- .jcall(obj, "[B", "consume", propertyName, propertyValue, .jlong(timeOut))
     if (is.jnull(out)) 
         message <- NULL else {
         if (!asString) 
