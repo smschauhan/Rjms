@@ -110,7 +110,7 @@
 									<echo>Installing the Rjms package....</echo>
 									<exec dir="${basedir}/build" executable="sh">
 										<arg value="-c" />
-										<arg value="R CMD INSTALL Rjms_0.0.4.tar.gz" />
+										<arg value="R CMD INSTALL Rjms_0.0.5.tar.gz" />
 									</exec>
 								</tasks>
 							</configuration>
