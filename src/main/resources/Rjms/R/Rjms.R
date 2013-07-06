@@ -44,7 +44,7 @@ destroy.consumer <- function(obj) {
     out <- .jcall(obj, "Z", "destroy")
 }
 
-listen <- function(consumer, property, value, exitCode = "#exit123", callback = printCallback, 
+listen <- function(consumer, property, value, asString, exitCode = "#exit123", callback = printCallback, 
     ...) {
     # default callback, prints the received messages
     printCallback <- function(x) print(x)
